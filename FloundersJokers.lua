@@ -1163,7 +1163,7 @@ function SMODS.INIT.flounderjokers()
 		-- Calculate
         SMODS.Jokers.j_blood.calculate = function(self, context)
 	       if self.ability.name ==  'bloodGem' then
-		        if context.cardarea == G.play and not context.repetition and context.other_card:is_suit("Hearts") then
+		        if context.cardarea == G.play and not context.repetition and context.other_card and context.other_card:is_suit("Hearts") then
                     G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + self.ability.extra.money
 					G.E_MANAGER:add_event(Event({func = (function() G.GAME.dollar_buffer = 0; return true end)}))
                     return {
@@ -1370,7 +1370,7 @@ function SMODS.INIT.flounderjokers()
 		-- Calculate
         SMODS.Jokers.j_imperial.calculate = function(self, context)
 	       if self.ability.name ==  'imperialTopaz' then
-		        if context.cardarea == G.play and not context.repetition and context.other_card:is_suit("Diamonds") then
+		        if context.cardarea == G.play and not context.repetition and context.other_card and context.other_card:is_suit("Diamonds") then
                     return {
                         mult = self.ability.extra.mult,
                         card = self
