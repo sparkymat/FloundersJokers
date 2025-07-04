@@ -755,7 +755,7 @@ function SMODS.INIT.flounderjokers()
         -- Calculate
         SMODS.Jokers.j_lucky.calculate = function(self, context)
 	       if self.ability.name ==  'luckyStone' then
-		        if context.cardarea == G.play and not context.repetition and context.other_card:is_suit("Clubs") then 
+		        if context.cardarea == G.play and not context.repetition and context.other_card and context.other_card:is_suit("Clubs") then 
                     if pseudorandom('lucky_money') < G.GAME.probabilities.normal/self.ability.extra.odds then
                         return {
                             x_mult = self.ability.extra.Xmult,
@@ -962,7 +962,7 @@ function SMODS.INIT.flounderjokers()
 		-- Calculate
         SMODS.Jokers.j_spear.calculate = function(self, context)
 	       if self.ability.name ==  'spearHead' then
-		        if context.cardarea == G.play and not context.repetition and context.other_card:is_suit("Clubs") then 
+		        if context.cardarea == G.play and not context.repetition and context.other_card and context.other_card:is_suit("Clubs") then 
                     return {
                         chips = self.ability.extra.chips,
                         card = self
@@ -1096,7 +1096,7 @@ function SMODS.INIT.flounderjokers()
 		-- Calculate
         SMODS.Jokers.j_missile.calculate = function(self, context)
 	       if self.ability.name ==  'missileTip' then
-		        if context.cardarea == G.play and not context.repetition and context.other_card:is_suit("Hearts") then 
+		        if context.cardarea == G.play and not context.repetition and context.other_card and context.other_card:is_suit("Hearts") then 
                     return {
                         chips = self.ability.extra.chips,
                         card = self
