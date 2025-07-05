@@ -893,7 +893,7 @@ function SMODS.INIT.flounderjokers()
 		-- Calculate
         SMODS.Jokers.j_shiny.calculate = function(self, context)
 	       if self.ability.name ==  'shinyStone' then
-		        if context.cardarea == G.play and not context.repetition and context.other_card:is_suit("Diamonds") then 
+		        if context.cardarea == G.play and not context.repetition and context.other_card and context.other_card:is_suit("Diamonds") then 
                     if pseudorandom('lucky_money') < G.GAME.probabilities.normal/self.ability.extra.odds then
                         return {
                             x_mult = self.ability.extra.Xmult,
@@ -1029,7 +1029,7 @@ function SMODS.INIT.flounderjokers()
 		-- Calculate
         SMODS.Jokers.j_bullet.calculate = function(self, context)
 	       if self.ability.name ==  'bulletTip' then
-		        if context.cardarea == G.play and not context.repetition and context.other_card:is_suit("Diamonds") then 
+		        if context.cardarea == G.play and not context.repetition and context.other_card and context.other_card:is_suit("Diamonds") then 
                     return {
                         chips = self.ability.extra.chips,
                         card = self
@@ -1437,7 +1437,7 @@ function SMODS.INIT.flounderjokers()
 		-- Calculate
         SMODS.Jokers.j_mozambique.calculate = function(self, context)
 	       if self.ability.name ==  'mozambiqueRuby' then
-		        if context.cardarea == G.play and not context.repetition and context.other_card:is_suit("Hearts") then
+		        if context.cardarea == G.play and not context.repetition and context.other_card and context.other_card:is_suit("Hearts") then
                     return {
                         mult = self.ability.extra.mult,
                         card = self
@@ -1504,7 +1504,7 @@ function SMODS.INIT.flounderjokers()
 		-- Calculate
         SMODS.Jokers.j_black.calculate = function(self, context)
 	       if self.ability.name ==  'blackDiamond' then
-		        if context.cardarea == G.play and not context.repetition and context.other_card:is_suit("Spades") then
+		        if context.cardarea == G.play and not context.repetition and context.other_card and context.other_card:is_suit("Spades") then
                     return {
                         mult = self.ability.extra.mult,
                         card = self
@@ -4298,4 +4298,3 @@ end
 
 ----------------------------------------------
 ------------MOD CODE END---------------------
-
